@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Регистрация</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_box">Регистрация для Учеников
+    <form action="{{url_for('gui_ckop.auth')}}" method="get">
+        <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+    </form>
+</div> 
+<div class="main_box">
+    <form action="{{url_for('gui_ckop.reg_student')}}" method="post">
+        <div class="col_0">
+            <input class="form-control inp_col_0 inp_ctr_5"type="text" 
+                    value="{{login}}" name="login" placeholder="E-mail">
+            <input class="form-control inp_col_0 inp_ctr_6" type="password" name="password" placeholder="Password">
+            <input class="form-control inp_col_0 inp_ctr_7" type="password" name="rep_password" placeholder="Repeat Password">
+        </div>
+        <div class="col_1">
+            <input class="form-control inp_ctr_5 inp_col_1" type="text" name="FIO" placeholder="FIO" value="{{fio}}">
+            <input class="form-control inp_ctr_6 inp_col_1" type="text" name="class" placeholder="Сlass" value="{{clas}}">
+            <input class="form-control inp_ctr_7 inp_col_1" type="text" name="classletter" placeholder="СlassLetter" value="{{classletter}}">
+            <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_1">Регистрация</button>
+        </div>
+        <div class="{{mes_type}} status_class_0">{{message}}</div>
+    </form>
+</div>
+{% endblock content_0 %}

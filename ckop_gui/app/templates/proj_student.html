@@ -1,0 +1,70 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Проект</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_cab">Управление проектом
+    <form action="{{url_for('gui_ckop.go_to_student_cabinet')}}" method="get">
+        <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+    </form>
+</div>
+<div class="main_box_cab main_box_cab_{{ch}}">
+    <div class="info_head info_head_{{ch}}">Информация о проекте</div>
+    <div class="info_std info_std_{{ch}}">
+        <p><b>Название проекта:</b> {{project_name}}</p>
+        <p><b>Цель:</b> {{Goal}}</p>
+        <p><b>Лаборатория:</b> {{laboratorie}}</p>
+        <p><b>Куратор:</b> {{tutor}}</p>
+        <p><b>Роль:</b> {{role}}</p>
+        <p><b>Участники:</b> {{members}}</p>
+        <br>
+        <div class="{{mes_type}} status_class_mes ">{{message}}</div>
+        {%if status_project != 3%}
+            {% set all_disabled = "disabled"%}
+            {% set all_read_only = "readonly" %}
+            <label>Проект заморожен</label>
+        {%else%}
+            {% set all_disabled = "" %}
+            {% set all_read_only = "" %}
+        {%endif%}
+    </div>
+<div class="info_head info_head_1 strng_hd strng_hd_0 info_head_{{ch}}" {{all_disabled}}>Изменить проект</div>
+    <div class="info_std info_std_{{ch}} strng_sd strng_sd_0">
+
+        <form action="{{url_for('gui_ckop.change_goal_project')}}" method="post">
+            <input class = "inp_sd inp_sd_1" value="{{Goal}}" {{all_read_only}} placeholder="Цель" name="goal">
+            <button type="submit" class="btn btn-secondary btn_sd_1" {{all_disabled}}>Изменить цель</button>
+        </form>
+        <form action="{{url_for('gui_ckop.create_task')}}" method="post">
+            <input class = "inp_sd inp_sd_2" name="task" placeholder="Задача" {{all_read_only}}>
+            <input type="date" class = "inp_sd inp_sd_2" name="date" placeholder="Задача" {{all_read_only}}>
+            <button type="submit" class="btn btn-secondary btn_sd_1" {{all_disabled}}>Добавить задачу</button>
+        </form>
+        
+        {%for k, task in slovar.items()%}
+            {% if task!=[] %}
+            {%if task[2]=="checked" %}
+                {% set clc_r_o = "inp_sd_bl" %}
+                {% set read_only = "readonly" %}
+                {% set btn_dis = "disabled" %}
+            {% endif %}
+            <div>
+                <form action="{{url_for('gui_ckop.changeTaskInProject')}}" method="post">
+                    <input class = "inp_sd inp_sd_4 inp_sd_bl" readonly value="{{k}}" name="indexxx">
+                    <input class = "inp_sd inp_sd_5 {{clc_r_o}} blocks" {{all_read_only}} {{read_only}} value="{{task[0]}}" name="task">
+                    <!-- <input class = "inp_sd inp_sd_1" value="{{s}}"> -->
+                    <button type="submit" class="btn btn-secondary btn_sd_1 " {{all_disabled}} {{btn_dis}}>Изменить</button><br>
+                    <input type="date" class="inp_sd inp_sd_2 inp_sd_bl" readonly value="{{task[1]}}">
+                    <label class="lbl_0 ">Выполнено</label>
+                    <input type="checkbox" readonly class="inp_sd inp_sd_3 blocks" {{all_read_only}} {{task[2]}} onclick="return false;">
+                </form>
+            </div>
+            {% endif %}
+        {%endfor%}
+        <br>
+    </div>
+
+</div>
+{% endblock content_0 %}

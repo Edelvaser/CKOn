@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Создать адреса</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_cab">
+    <form action="{{url_for('gui_ckop.go_to_teacher_cabinet')}}" method="get">
+        <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+    </form>
+</div>
+<div class="main_box_cab">
+<div class="info_head info_head_1 strng_hd">Создать кошелек</div>
+    <div class="info_std strng_sd">
+    <form action="{{url_for('gui_ckop.create_acc_for_student')}}" method="post">
+            <input class=" inp_sd inp_sd_1" type="text" name="pass_walet" placeholder="Пароль для аккаунта ученика">
+            <br>
+            <button type="submit" class="btn btn-secondary btn_sd_0">Создать</button>
+        {%if mes_type == "status_class_wrong" or mes_type == "" %}
+            <div class="{{mes_type}} status_class_0">{{message}}</div>
+        {%else%}
+            <p class="{{mes_type}} status_class st_cls_1">Передайте ученику созданные Вами 
+                логин и пароль для дальнейшей регистрации</p>
+            <div class="{{mes_type}} status_class_0 st_cls_2">Логин: {{message}}</div>
+        {%endif%}
+    </form>
+</div>
+</div>
+
+{% endblock content_0 %}

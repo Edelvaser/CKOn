@@ -1,0 +1,25 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Регистрация</title>
+{% endblock  %}
+
+{% block content_0 %}
+
+    <div class="head_box code_txt">Введите код
+        <form action="{{url_for('gui_ckop.auth')}}" method="get">
+            <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+        </form>
+    </div> 
+    <div class="main_box">
+    <form action="{{url_for('gui_ckop.check_email_teacher')}}" method="post">
+        <div class="mb-3">
+            <input class="form-control inp_ctr inp_ctr_1" type="text" name="check" placeholder="Code">
+            <button type="submit" class="btn btn-secondary btn_ctr">Проверить</button>
+            <div class="{{mes_type}} status_class">{{message}}</div>
+        </div>
+    </form>
+    </div>
+
+{% endblock content_0 %}
+

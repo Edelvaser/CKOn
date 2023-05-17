@@ -1,0 +1,56 @@
+0xff42Fc7fdB5928b63da0bF2340880369fE335bf0 1
+0xA8368d91ce67D60b9e1288eB2ba2555C0e09EE94 1
+0x486516Ce05a158cBD488F219Ca64Fea674b4b8f7 1
+0x16496CAA734bA101cA1D931c648F9FA12856B69e 1
+0x52a0024cB03CCB7B787eba15A6f7FF7EF2fCE3f9 1
+0xF18919Fa57FBa4c75c4bE86762B485f1b4A5D954 1
+0xE2449a03bFa5A89dA6295EB6547e91A15c63Ac8B 1
+0xa796B7739989cDcA7c861BEd94F4aE01d23B18CE 1
+0xa3e508192eeD1CB8151D6F2dB5Bd0ba45dC49535 1
+0x19acaE5Ab26022D4e0249899cD6d780BD1a31DD0 1
+0x6D7Bd28346ceDB712Fa6811C4e16332A8fD38f26 1
+0xD08270D7cFd9b50A6E94b40c95175acD9A62c234 1
+0x234D8945797EE0995A9748DAd31E3629bB0dD888 1
+0x2180768fE112ff886b74436bF0E46954E87B7882 1
+0xF375A7eEDe5f1d2420e17e5eAaBa5FEf17098bdd 1
+0x1b4e31DE080A09083f92b64626cE1487B1f6bC00 1
+0xAE05dd8c2a3A791ac26dD8124CBE8dB4aA96C2ca 1
+0x97E0c513a627fe4E348Bb42b376AAC790B3f71Fc 1
+0x3267BADf5e01cBb50256C09977a432a2D7Fec5C7 1
+0x4B33cEbdf6F3bb2Ef7B96157c311A9255BE1e861 1
+
+
+geth account new --datadir data
+
+geth init --datadir data genesis.json
+
+geth --datadir data --networkid 1595 --http --http.corsdomain="package://6fd22d6fe5549ad4c4d8fd3ca0b7816b.mod" --http.api web3,eth,debug,personal,net --allow-insecure-unlock console --unlock 0xff42Fc7fdB5928b63da0bF2340880369fE335bf0
+
+
+# Testing
+geth --datadir data --networkid 15951595 --http --http.corsdomain="package://6fd22d6fe5549ad4c4d8fd3ca0b7816b.mod" --http.api web3,eth,debug,personal,net,miner  --allow-insecure-unlock console --unlock 0xff42Fc7fdB5928b63da0bF2340880369fE335bf0
+geth attach --datadir data ipc:\\.\pipe\geth.ipc
+
+
+
+
+
+
+structs_0.setStatusAddress(0xA8368d91ce67D60b9e1288eB2ba2555C0e09EE94, MakeStruct0.StatusAddress.ForTeacher);
+structs_0.setStatusAddress(0x486516Ce05a158cBD488F219Ca64Fea674b4b8f7, MakeStruct0.StatusAddress.ForTeacher);
+structs_0.setStatusAddress(0x16496CAA734bA101cA1D931c648F9FA12856B69e, MakeStruct0.StatusAddress.ForTeacher);
+structs_0.setStatusAddress(0x52a0024cB03CCB7B787eba15A6f7FF7EF2fCE3f9, MakeStruct0.StatusAddress.ForTeacher);
+structs_0.setStatusAddress(0xF18919Fa57FBa4c75c4bE86762B485f1b4A5D954, MakeStruct0.StatusAddress.ForTeacher);
+structs_0.setStatusAddress(0xE2449a03bFa5A89dA6295EB6547e91A15c63Ac8B, MakeStruct0.StatusAddress.ForTeacher);
+structs_0.setStatusAddress(0xa796B7739989cDcA7c861BEd94F4aE01d23B18CE, MakeStruct0.StatusAddress.ForTeacher);
+structs_0.setStatusAddress(0xa3e508192eeD1CB8151D6F2dB5Bd0ba45dC49535, MakeStruct0.StatusAddress.ForTeacher);
+structs_0.setStatusAddress(0x19acaE5Ab26022D4e0249899cD6d780BD1a31DD0, MakeStruct0.StatusAddress.ForTeacher);
+
+
+structs_0.setStatusAddress(0x6D7Bd28346ceDB712Fa6811C4e16332A8fD38f26, MakeStruct0.StatusAddress.ForStudent);
+structs_0.setStatusAddress(0xD08270D7cFd9b50A6E94b40c95175acD9A62c234, MakeStruct0.StatusAddress.ForStudent);
+structs_0.setStatusAddress(0x234D8945797EE0995A9748DAd31E3629bB0dD888, MakeStruct0.StatusAddress.ForStudent);
+structs_0.setStatusAddress(0x2180768fE112ff886b74436bF0E46954E87B7882, MakeStruct0.StatusAddress.ForStudent);
+structs_0.setStatusAddress(0xF375A7eEDe5f1d2420e17e5eAaBa5FEf17098bdd, MakeStruct0.StatusAddress.ForStudent);
+structs_0.setStatusAddress(0x1b4e31DE080A09083f92b64626cE1487B1f6bC00, MakeStruct0.StatusAddress.ForStudent);
+structs_0.setStatusAddress(0xAE05dd8c2a3A791ac26dD8124CBE8dB4aA96C2ca, MakeStruct0.StatusAddress.ForStudent);

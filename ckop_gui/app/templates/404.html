@@ -1,0 +1,16 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Страница не найдена</title>
+{% endblock  %}
+
+{% block content_0 %}
+    <div class="head_box err_404_head">Страница не найдена</div> 
+    <div class="main_box">
+    <form action="{{url_for('gui_ckop.index')}}" method="get">
+        <div >
+           <button type="submit" class="btn btn-secondary btn_ctr">Страница не найдена. Назад</button><br>
+        </div>
+    </form>
+    </div>
+{% endblock content_0 %}

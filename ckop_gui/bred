@@ -1,0 +1,5 @@
+        <form action="{{url_for('gui_ckop.create_role')}}" method="post">
+            <label>Ваша роль в проекте: "{{role}}" </label>
+            <input class = "inp_sd inp_sd_1" value="{{role}}" name="role" placeholder="Роль">
+            <button type="submit" class="btn btn-secondary btn_sd_1">Изменить роль</button>
+        </form>

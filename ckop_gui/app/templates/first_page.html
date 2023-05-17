@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Регистрация</title>
+{% endblock  %}
+
+{% block content_0 %}
+    <div class="firts-page">
+        <form action="{{url_for('gui_ckop.go_to_reg_student')}}" method="post">
+            <label>Зарегистрироваться(ученик)</label>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary">Send</button>
+            </div>
+        </form>
+        <form action="{{url_for('gui_ckop.go_to_reg_teacher_email')}}" method="post">
+            <label>Зарегистрироваться(учетель)</label>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary">Send</button>
+            </div>
+        </form>
+        <form action="{{url_for('gui_ckop.go_to_auth')}}" method="post">
+            <label>Авторизация</label>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary">Send</button>
+            </div>
+        </form>
+    </div>
+{% endblock content_0 %}

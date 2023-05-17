@@ -1,0 +1,110 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Проект</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_cab">Управление проектом 
+    <form action="{{url_for('gui_ckop.go_to_teacher_cabinet')}}" method="get">
+        <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+    </form>
+</div>
+<div class="main_box_cab main_box_cab_{{len_tasks}}">
+    <div class="info_head info_head_{{len_tasks}}">Информация о проекте</div>
+    <div class="info_std info_std_{{len_tasks}}">
+        <p><b>Название проекта:</b> {{project_name}}</p>
+        <p><b>Цель проекта:</b> {{goal_project}}</p>
+        <p><b>Участники:</b></p>
+        {%for i in students%}
+            <p>{{i}}</p>
+        {%endfor%}
+        <p><b>Лаборатория:</b> {{laboratorie}}</p>
+        {%if tutor%}
+            <p><b>Куратор:</b> {{tutor}}</p>
+            {% set all_disabled = ""%}
+            {% set all_read_only = "" %}
+            {% set resurect_dis = "disabled" %}
+        {%else%}
+            <p>Вас пригласили стать куратором этого проекта</p>
+            <form action="{{url_for('gui_ckop.response_yes')}}" method="post">
+                <button type="submit" class="btn btn-secondary btn_ctr_01" >Согласиться</button><br><br>
+            </form>
+            <form action="{{url_for('gui_ckop.response_no')}}" method="post">
+                <button type="submit" class="btn btn-secondary btn_ctr_01" >Отказаться</button><br><br>
+            </form>
+            {% set all_disabled = "disabled"%}
+            {% set all_read_only = "readonly" %}
+            {% set resurect_dis = "disabled" %}
+        {%endif%}
+        {%if status_project != 3%}
+            {% set all_disabled = "disabled"%}
+            {% set all_read_only = "readonly" %}
+            {%set resurect_dis = "enabled" %}
+            <label>Проект заморожен</label>
+        {%endif%}
+        <div class="{{mes_type}} status_class_mes ">{{message}}</div>
+        <!-- <p>Задачи проекта: {{Project_name}}</p> -->
+        <br>
+        <form action="{{url_for('gui_ckop.freeze_project')}}" method="post">
+            <button type="submit" class="btn btn-secondary btn_ctr_01" {{all_disabled}}>Заморозить проект</button><br><br>
+        </form>
+        <form action="{{url_for('gui_ckop.end_project')}}" method="post">
+            <button type="submit" class="btn btn-secondary btn_ctr_01" {{all_disabled}}>Завершить проект</button><br><br>
+        </form>
+        <form action="{{url_for('gui_ckop.resurect_project')}}" method="post">
+            <button type="submit" class="btn btn-secondary btn_ctr_01" {{resurect_dis}}>Восстановить проект</button>
+        </form>
+        
+    </div>
+<div class="info_head info_head_1 strng_hd strng_hd_0 info_head_{{len_tasks}}">Изменить проект</div>
+    <div class="info_std info_std_{{len_tasks}} strng_sd strng_sd_0">
+
+        <form action="{{url_for('gui_ckop.create_role')}}" method="post">
+            <input class = "inp_sd inp_sd_2" placeholder="Роль" name="role" {{all_read_only}}>
+            <input class = "inp_sd inp_sd_2" placeholder="Логин ученика" {{all_read_only}} name="login_student">
+            <button type="submit" class="btn btn-secondary btn_sd_1" {{all_disabled}}>Добавить роль ученику</button>
+        </form>
+        <form action="{{url_for('gui_ckop.change_goal_project_tutor')}}" method="post">
+            <input class = "inp_sd inp_sd_1" value="{{goal_project}}"{{all_read_only}} name="goal">
+            <button type="submit" class="btn btn-secondary btn_sd_1" {{all_disabled}}>Изменить цель</button>
+        </form>
+        <form action="{{url_for('gui_ckop.create_task_teacher')}}" method="post">
+            <input class="inp_sd inp_sd_2" name="task" placeholder="Текст задачи" {{all_read_only}}>
+            <input type="date" class="inp_sd inp_sd_2" name="date" placeholder="Срок выполнения" {{all_read_only}}>
+            <button type="submit" class="btn btn-secondary btn_sd_1" {{all_disabled}}>Добавить задачу</button>
+        </form>
+        <form action="{{url_for('gui_ckop.addStudentInProject')}}" method="post">
+            <input class = "inp_sd inp_sd_1" name="login_student" placeholder="Логин ученика" {{all_read_only}}>
+            <button type="submit" class="btn btn-secondary btn_sd_1" {{all_disabled}}>Добавить ученика</button>
+        </form>
+
+        <div class="one_task">
+        
+        {%for k, task in tasks.items()%}
+            {% if task!=[] %}
+            {%if task[2]=="checked" %}
+                {% set clc_r_o = "inp_sd_bl" %}
+                {% set read_only = "readonly" %}
+                {% set btn_dis = "disabled" %}
+            {% endif %}  
+            <form action="{{url_for('gui_ckop.changeTaskInProjectTeacher')}}" method="post">
+            <div class="{{cls_tsk}}">
+                <input class = "inp_sd inp_sd_4 {{clc_r_o}}" readonly value="{{k}}" name="indexxx">
+                <input class = "inp_sd inp_sd_5 {{clc_r_o}}" all_read_only {{read_only}} value="{{task[0]}}" name="task">
+                <input type="date" class="inp_sd inp_sd_2 {{clc_r_o}}" all_read_only {{read_only}} value="{{task[1]}}" name="date">
+                <label class="lbl_0">Выполнено</label>
+                <input type="checkbox" class="inp_sd inp_sd_3" {{task[2]}} all_read_only name="check_ready">
+                <button type="submit" {{all_disabled}} class="btn btn-secondary btn_sd_1 btn_sd_2" 
+                    {{btn_dis}}>Изменить</button>
+            </div>
+            </form>
+            {% endif %}
+        {%endfor%}
+        
+    </div>
+        <br>
+    </div>
+
+</div>
+{% endblock content_0 %}

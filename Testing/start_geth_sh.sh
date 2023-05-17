@@ -1,0 +1,1 @@
+./geth --datadir data --networkid 15951595 --http --http.corsdomain="https://remix.ethereum.org/" --http.api web3,eth,debug,personal,net,miner --allow-insecure-unlock console

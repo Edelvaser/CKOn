@@ -1,0 +1,25 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Создать проект</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_cab">
+    <form action="{{url_for('gui_ckop.go_to_teacher_cabinet')}}" method="get">
+        <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+    </form>
+</div>
+<div class="main_box_cab">
+<div class="info_head info_head_1 strng_hd">Создать проект</div>
+    <div class="info_std strng_sd">
+    <form action="{{url_for('gui_ckop.create_project_teacher')}}" method="post">
+            <input class=" inp_sd inp_sd_1" type="text" name="name_project" placeholder="Название проекта">
+            <br>
+            <button type="submit" class="btn btn-secondary btn_sd_0">Создать</button>
+        <div class="{{mes_type}} status_class">{{message}}</div>
+    </form>
+</div>
+</div>
+
+{% endblock content_0 %}

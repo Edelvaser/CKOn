@@ -1,0 +1,78 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Личный кабинет</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_cab">Личный кабинет учителя
+    <form action="{{url_for('gui_ckop.exit_lc')}}" method="post">
+        <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+    </form>
+</div>
+<div class="main_box_cab">
+        <div class="info_head">Об учителе</div>
+        <div class="info_std">
+            <p>Логин: {{login}}</p>
+            <p>ФИО: {{fio}}</p>
+            <p>Предметы: {{sub}}</p>
+            <p>Лаборатория: {{lab}}</p>
+            <div class="{{mes_type}} status_class_mes ">{{message}}</div>
+            <form action="{{url_for('gui_ckop.exit_lc')}}" method="post">
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_6">Выход</button>
+            </form>
+        </div>
+
+        <div class="info_head info_head_1">Активные Проекты</div>
+        <div class="info_std aval_proj">
+            <form action="{{url_for('gui_ckop.go_to_look_teacher_project')}}" method="post">
+                {% for key, value in projects.items() %}
+                    <p>{{key}} : {{value}}</p>
+                {% endfor %}
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_6">К проектам</button>
+                </div>
+            </form>
+        </div>
+
+
+<div class="info_head info_head_2">Доступные функции</div>
+    <div class="info_std func_stud">
+        <form action="{{url_for('gui_ckop.go_to_create_projects_teacher')}}" method="post">
+            <!-- <label class="form-label">Создать проект</label> -->
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_4">Создать проект</button>
+            </div>
+        </form>
+        <br>
+        <form >
+            <!-- <label class="form-label">Добавить сильную сторону</label> -->
+            <div >
+                <!-- <input class="form-control inp_ctr inp_ctr_8" type="text" name="strong_side"> -->
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_5">Общая информация</button>
+            </div>
+        </form>
+        <form >
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_7">Просмотр активных проектов</button>
+            </div>
+        </form>
+
+        <form action="{{url_for('gui_ckop.go_to_create_acc_for_student')}}" method="post">
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_8">Зарегистрировать учеников</button>
+            </div>
+        </form>
+        <form >
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_9">Просмотр архивных проектов</button>
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+</div>
+{% endblock content_0 %}

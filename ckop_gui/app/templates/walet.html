@@ -1,0 +1,37 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Авторизация кошелька</title>
+{% endblock  %}
+
+{% block content_0 %}
+    <style>
+        form{
+            width: 450px;
+            margin-bottom: 30px;
+        }
+        body{
+            margin: 15px;
+        }
+        button{
+            margin-top: 20px;
+        }
+        input{
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    </style>
+    <form action="{{url_for('gui_ckop.walet')}}" method="post">
+        <div class="mb-3">
+            <h4>{{message}}</h4>
+            <label>Авторизация кошелька</label>
+            <select name="addr" class="form-control" id="floatingInput" aria-label="Default select example">
+                {% for i in users %}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+            </select>
+            <input class="form-control" type="text" name="pass" placeholder="Password">
+            <button type="submit" class="btn btn-secondary">Send</button>
+        </div>
+    </form>
+{% endblock content_0 %}

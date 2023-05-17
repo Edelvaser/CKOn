@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>проект</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="status_class_wrong">{{message}}</div>
+<div class="head_cab">проект</div>
+        <div class="info_head">Данные</div>
+    <div class="info_std">
+        <p>Логин: {{login}}</p>
+        <p>ФИО: {{name}}</p>
+        <p>Класс: {{classnum}} {{classletter}}</p>
+        <p>Название проекта: {{Project_name}}</p>
+        <p>Цель: {{Goal}}</p>
+        <p>Лаборатория: {{Laboratorie}}</p>
+        <form action="{{url_for('gui_ckop.changeGoalProject')}}" method="post">
+            <label>Изменить цель</label>
+            <input class="form-control"type="text" name="goal"> 
+            <button type="submit" class="btn btn-secondary">Изменить</button>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock content_0 %}

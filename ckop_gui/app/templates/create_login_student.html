@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Личный кабинет</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_cab">Личный кабинет учителя
+    <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+</div>
+<div class="main_box_cab">
+        <div class="info_head info_head_1 strng_hd">Создать учетную запись для учеников</div>
+    <div class="info_std strng_sd">
+        <form action="{{url_for('gui_ckop.go_to_create_projects')}}" method="post">
+            <input type="password" class="inp_sd inp_sd_1" placeholder="Введите пароль">
+            <input type="password" class="inp_sd inp_sd_1" placeholder="Подтвердите пароль">
+            <br>
+            <button type="submit" class="btn btn-secondary btn_sd_0" >Создать</button>
+        </form>
+        {%if mes_type == "status_class_wrong" %}
+            <div class="{{mes_type}} status_class_0">{{message}}</div>
+        {%else%}
+            <p class="{{mes_type}} status_class st_cls_1">Передайте ученику созданные Вами 
+                логин и пароль для дальнейшей регистрации</p>
+            <div class="{{mes_type}} status_class_0 st_cls_2">Логин: {{message}}</div>
+        {%endif%}
+</div>
+
+</div>
+{% endblock content_0 %}

@@ -1,0 +1,27 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Проекты</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_cab">
+    <form action="{{url_for('gui_ckop.go_to_teacher_cabinet')}}" method="get">
+        <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+    </form>
+</div>
+<div class="main_box_cab">
+        <div class="info_head info_head_1 strng_hd">Информация о проектах</div>
+        <!-- <div class="info_std"> -->
+    <div class="info_std strng_sd">
+        {% for i, j in project_list.items() %}
+        <form action="{{url_for('gui_ckop.go_to_change_teacher_project')}}" method="post">
+            <input class = "inp_sd inp_sd_4 inp_sd_bl" name="indexxx" readonly value="{{i}}">
+            <input class = "inp_sd inp_sd_5 inp_sd_bl" readonly value="{{j}}">
+            <button type="submit" class="btn btn-secondary btn_sd_1" >Просмотр</button>
+        </form>
+        {%endfor%}
+</div>
+
+</div>
+{% endblock content_0 %}

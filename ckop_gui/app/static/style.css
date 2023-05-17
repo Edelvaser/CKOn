@@ -1,0 +1,288 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('/static/Roboto/Roboto-ThinItalic-webfont.eot');
+    src: url('/static/Roboto/Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/Roboto/Roboto-ThinItalic-webfont.woff') format('woff'),
+         url('/static/Roboto/Roboto-ThinItalic-webfont.ttf') format('truetype'),
+         url('/static/Roboto/Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg');
+    font-weight: 200;
+    font-style: italic;
+}
+
+html.body{
+    margin: 0;
+}
+/* auth-page */
+.auth-page, .wallet-page{
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.auth-page input, .auth-page button, .wallet-page input, .wallet-page button{
+    margin-top: 10px;
+}
+
+/* личные кабинеты */
+
+
+.firts-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+body{
+    background: #1E1E1E;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 18px;
+}
+
+.head_box{
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    left: 25%;
+    top: 10%;
+    background: #3E92CC;
+    border-radius: 15px 15px 0px 0px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+    padding-left: 15%;
+    padding-top: 1%;
+}
+
+.main_box{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 20%;
+    background: #D8E1EA;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.main_box_0{
+    height: 75%;
+}
+
+
+/* left: 30%;
+top: 25%;
+position: absolute; */
+.inp_ctr{
+    position: absolute;
+    box-sizing: border-box;
+    margin: 1%;
+    width: 70%;
+    left: 15%;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.inp_ctr_0{
+    top: 5%;
+}
+
+.inp_ctr_1{
+    top: 20%;
+}
+
+.inp_ctr_2{
+    top: 35%;
+}
+
+.inp_ctr_3{
+    top: 50%;
+}
+
+.inp_ctr_4{
+    top: 65%;
+}
+
+.col_0 {
+
+    left:20%;
+}
+
+.col_1{
+
+    left:50%;
+}
+
+.inp_col_0{
+    position: absolute;
+    box-sizing: border-box;
+    margin: 1%;
+    width: 40%;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 18px;
+    left: 7%
+}
+
+.inp_col_1{
+    position: absolute;
+    box-sizing: border-box;
+    margin: 1%;
+    width: 40%;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 18px;
+    left:50%;
+}
+
+.inp_ctr_5{
+    position: absolute;
+    top: 5%;
+}
+
+.inp_ctr_6{
+    position: absolute;
+    top: 20%;
+}
+
+.inp_ctr_7{
+    position: absolute;
+    top: 35%;
+}
+
+.code_txt{
+    padding-left: 20%
+}
+.btn_ctr{
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 25%;
+    background: #3E92CC;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.btn_ctr_01{
+    /* position:inherit; */
+    width: 50%;
+    left: 25%;
+    background: #3E92CC;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.btn_ctr_0{
+    top: 50%;
+}
+
+.btn_ctr_1{
+    top: 60%;
+}
+
+.btn_ctr_2{
+    top: 65%;
+}
+
+.btn_ctr_3{
+    top: 80%;
+}
+.rest_passw{
+    position: absolute;
+    top: 90%;
+    left: 42%;
+    color:#3E92CC;
+}
+.status_class {
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    width: 70%;
+    left: 16%;
+    height: 40px;
+    top: 70%;
+    border-radius: 5px;
+}
+
+.status_class_0 {
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    width: 70%;
+    left: 16%;
+    height: 40px;
+    top: 75%;
+    border-radius: 5px;
+}
+
+.status_class_mes{
+    padding: 10px 10px 10px 10px;
+    /* position: absolute; */
+    width: 70%;
+    left: 16%;
+    height: 40px;
+    top: 40%;
+    border-radius: 5px;
+}
+
+.st_cls {
+    top:80%;
+}
+
+.st_cls_0 {
+    /* position: relative; */
+    top:90%;
+}
+
+.st_cls_1 {
+    /* position: relative; */
+    top:65%;
+    height: 80px;
+}
+
+.st_cls_2 {
+    /* position: relative; */
+    top:85%;
+}
+
+.status_class_good {
+    background-color: rgb(150, 212, 150);
+}
+
+.status_class_wrong {
+    background-color: rgb(212, 150, 150);
+}
+
+.status_class_neyt {
+    display: none;
+    background-color:white;
+}
+
+.ext_btn{
+    width: 5%;
+    /* height: 20%; */
+    top: 20%;
+    left: 90%;
+    background: #3E92CC;
+    border-radius: 5px;
+    font-size: 18px;
+
+}
+
+.blocks{
+    background-color: grey;
+}
+
+.err_404{
+    left: 40%;
+    font-size: 18px;
+}

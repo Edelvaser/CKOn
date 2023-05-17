@@ -1,0 +1,39 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Личный кабинет</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_cab">Изменить сильные стороны
+    <form action="{{url_for('gui_ckop.go_to_student_cabinet')}}" method="get">
+        <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+    </form>
+</div>
+<div class="main_box_cab main_box_cab_{{len_tasks}}">
+<div class="info_head info_head_1 strng_hd info_head_{{len_tasks}}"></div>
+<div class="info_head info_head_1 strng_hd info_head_{{len_tasks}}"></div>
+    <div class="info_std strng_sd info_std_{{len_tasks}}">
+        {%for k, j in slovar.items()%}
+            <div>
+                <form action="{{url_for('gui_ckop.change_strong_side')}}" method="post">
+                    <input class = "inp_sd inp_sd_4 {{clc_r_o}}" readonly value="{{k}}" name="indexx">
+                    <input class = "inp_sd inp_sd_5 {{clc_r_o}}" {{read_only}} value="{{j}}" name="side">
+                <button type="submit" class="btn btn-secondary btn_sd_1">Изменить</button>
+                </form>
+            </div>
+        {%endfor%}
+
+        <br>
+        {%if str_sd_len %}
+        <form action="{{url_for('gui_ckop.create_strong_side')}}" method="post">
+            <input class = "inp_sd_0" name="strong_side" placeholder="Сильная сторона">
+            <button type="submit" class="btn btn-secondary btn_sd_1">Добавить</button>
+        </form>
+        {%endif%}
+
+        <div class="{{mes_type}} status_class">{{message}}</div>
+    </div>
+
+</div>
+{% endblock content_0 %}

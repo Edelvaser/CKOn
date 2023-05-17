@@ -1,0 +1,44 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Регистрация</title>
+{% endblock  %}
+
+{% block content_0 %}
+    <div class="head_box">Регистрация для Учителей 
+        <form action="{{url_for('gui_ckop.auth')}}" method="get">
+            <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+        </form>
+    </div>
+    <div class="main_box">
+    <form action="{{url_for('gui_ckop.reg_teacher_check')}}" method="post">
+        <div class="col_0">
+            <input class="form-control  inp_col_0 inp_ctr_5"type="text" name="email" placeholder="Email">
+            <input class="form-control  inp_col_0 inp_ctr_6" type="password" name="password" placeholder="Password">
+            <input class="form-control  inp_col_0 inp_ctr_7" type="password" name="rep_password" placeholder="Repeat Password">
+        </div>
+        <div class="col_1">
+            <input class="form-control  inp_ctr_5 inp_col_1" type="text" name="FIO" placeholder="FIO">
+            <select class="form-select inp_ctr_6 inp_col_1" placeholder="Schoolwork" name="SchoolSubjects">
+                <option class="opt_ctr" style="color:gray" selected disabled value="Schoolwork">Schoolwork</option>
+                {% for i, k in subject.items() %}
+                <option value="{{i}}">{{k}}</option>
+                {% endfor %}
+            </select>
+            <select class="form-select  inp_col_1 inp_ctr_7" placeholder="Laboratories" name="laboratories">
+                <option  class="opt_ctr" style="color:gray" selected disabled value="Laboratories">Laboratories</option>
+                {% for i, k in listt.items() %}
+                <option  value="{{i}}">{{k}}</option>
+                {% endfor %}
+            </select>
+        </div>
+            <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_1">Регистрация</button>
+            <div class="{{mes_type}} status_class_0">{{message}}</div>
+        </div>
+    </form>
+    
+    </div>
+</body>
+
+
+{% endblock content_0 %}

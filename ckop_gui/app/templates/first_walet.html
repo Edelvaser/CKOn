@@ -1,0 +1,21 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Регистрация</title>
+{% endblock  %}
+
+{% block content_0 %}
+    <div class="head_box">Введите аккаунт и пароль
+    </div> 
+    <div class="main_box">
+    <form action="{{url_for('gui_ckop.walet')}}" method="post">
+        <div >
+            <!-- <label>Введите кошелек и пароль</label> -->
+            <input class="form-control inp_ctr inp_ctr_0" type="text" name="walet" placeholder="Account"><br>
+            <input type="password" class="form-control inp_ctr inp_ctr_1" type="text" name="password" placeholder="Password">
+            <button type="submit" class="btn btn-secondary btn_ctr">Войти</button><br>
+            <div class="{{mes_type}} status_class">{{message}}</div>
+        </div>
+    </form>
+    </div>
+{% endblock content_0 %}

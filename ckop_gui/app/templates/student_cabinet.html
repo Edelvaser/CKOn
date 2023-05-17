@@ -1,0 +1,81 @@
+{% extends 'template.html' %}
+
+{% block  title %}
+    <title>Личный кабинет</title>
+{% endblock  %}
+
+{% block content_0 %}
+<div class="head_cab">Личный кабинет ученика
+    <form action="{{url_for('gui_ckop.exit_lc')}}" method="post">
+        <button class="btn btn-secondary btn_ctr ext_btn">X</button>
+    </form>
+</div>
+<div class="main_box_cab">
+        <div class="info_head">Об ученике</div>
+        <div class="info_std">
+            <p>Логин: {{login}}</p>
+            <p>ФИО: {{name}}</p>
+            <p>Класс: {{classnum}} {{classletter}}</p>
+            {% if check_strong_side%}
+                <p>Сильные стороны:</p>
+                <p>{{strong_side}}</p>
+                    <!-- {% for i in strong_side %}
+                        <p value="{{i}}">{{i}}</p>
+                    {% endfor %} -->
+            {% endif %}
+            <div class="{{mes_type}} status_class">{{message}}</div>
+            <form action="{{url_for('gui_ckop.exit_lc')}}" method="post">
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_6">Выход</button>
+            </form>
+        </div>
+
+<div class="info_head info_head_1">Текущий проект</div>
+    <div class="info_std aval_proj">
+        
+            {% if new_proj_avalible %}
+                <p>У вас нет доступных проектов</p>
+            {% else %}
+                <p>Название проекта: {{Project_name}}</p>
+                <p>Лаборатория: {{Laboratorie}}</p>
+            {% endif %}
+    {% if status_project %}
+        <form action="{{url_for('gui_ckop.go_to_change_projects')}}" method="post">
+        <div class="mb-3">
+            
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_6">К проекту</button>
+        </div>
+        </form>
+    {% endif %}
+</div>
+
+<div class="info_head info_head_2">Доступные функции</div>
+    <div class="info_std func_stud">
+        {% if new_proj_avalible %}
+        <form action="{{url_for('gui_ckop.go_to_create_projects')}}" method="post">
+            <!-- <label class="form-label">Создать проект</label> -->
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_4">Создать проект</button>
+            </div>
+        </form>
+        {% endif %}
+        <br>
+        <form action="{{url_for('gui_ckop.go_to_create_strong_side')}}" method="post">
+            <div >
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_5">Изменить сильные стороны</button>
+            </div>
+        </form>
+        <form>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_7">Просмотр архивных проектов</button>
+            </div>
+        </form>
+
+        <form >
+            <div class="mb-3">
+                <button type="submit" class="btn btn-secondary btn_ctr btn_ctr_8">Общая информация</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock content_0 %}
