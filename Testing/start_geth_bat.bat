@@ -1,1 +1,1 @@
-geth --datadir data --networkid 15951595 --http --http.corsdomain="*" --http.api web3,eth,debug,personal,net,miner --allow-insecure-unlock --unlock ff42Fc7fdB5928b63da0bF2340880369fE335bf0 console
+geth --datadir data --networkid 15951595 --http --http.corsdomain="*" --http.api web3,eth,debug,personal,net,miner --allow-insecure-unlock console
